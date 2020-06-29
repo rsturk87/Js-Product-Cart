@@ -49,8 +49,7 @@ const addItemToCart = (evt) => {
 const removeItem = (evt) => {  
   if(evt.target.nodeName === 'BUTTON')
   {
-    const id = parseInt(evt.target.attributes['data-id'].nodeValue);
-    const newCart = cartItems.filter((c) => parseInt(c.id) !== id);
+    //falta fazer
     setItems(newCart);
   }
 };
