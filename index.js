@@ -7,7 +7,7 @@ Array.prototype.contains = function(value){ return this.indexOf(value) > -1; };
 
 //variáveis e constantes
 let cartItems = [];
-const button = document.querySelectorAll('.action-buttons');
+const button = document.querySelector('#lista-produtos');
 const productList = document.querySelector('#lista-produtos');
 const cartList = document.querySelector('#lista-carrinho');
 const totalPrice = document.querySelector('#total');
@@ -36,26 +36,40 @@ const setItems = (arr) => {
 
 //Adicionar item no carrinho
 const addItemToCart = (evt) => {
-  if(evt.target.nodeName === 'BUTTON') //falta trabalhar essa lógica ainda
+  if(evt.target.nodeName == 'BUTTON' && evt.target.attributes['data-id'])
   {
-  const product = evt.value;
-    if (product) {
-      const newItems = [...cartItems, itemName];
-      setItems(newItems);
-    }}
-};
+    const data = [...evt.target.attributes];
+      const product = data.reduce((obj, node) => {
+        const attr = node.nodeName.replace('data-', '');
+        const value = node.nodeValue;
+        obj[attr] = value;
+        return obj;
+      }, {});
+      const newCart = [...cartItems, product];
+      setItems(newCart);
+  }
+  };
 
 //Remover item do carrinho
 const removeItem = (evt) => {  
   if(evt.target.nodeName === 'BUTTON')
   {
-    //falta fazer
+    const id = evt.target.attributes['data-id'].nodeValue;
+    const newCart = cartItems.filter((c) => c.id !== id);
     setItems(newCart);
   }
 };
 
 //Mudar quantidade do item no carrinho
-//falta fazer
+const changeQuantity = (evt) => {
+  if(evt.target.nodeName === 'INPUT')
+  {
+    const id = evt.target.attributes['data-id'].nodeValue;
+    const index = cartItems.findIndex(item => item.id === id);
+    cartItems[index].quantity = parseInt(evt.target.value);
+    setItems(cartItems);
+  }
+};
 
 //template
 const templateToHTML = (template, item) => {
@@ -71,7 +85,8 @@ const templateToHTML = (template, item) => {
 const render = () => {
   const cartHTML = cartItems.map((item) => templateToHTML(template, item));
   cartList.innerHTML = cartHTML.join('\n');
-  //falta inserir preco total
+  const total = cartItems.reduce((acc, item) => acc += parseInt(item.price) * parseFloat(item.quantity), 0);
+  totalPrice.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 };
 
 //init
@@ -79,6 +94,7 @@ const init = () => {
     cartItems = storageHandler.getItems();
     button.addEventListener('click', addItemToCart);
     cartList.addEventListener('click', removeItem);
+    cartList.addEventListener('change', changeQuantity);
     render();
 };
 init();
