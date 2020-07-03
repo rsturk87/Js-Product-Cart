@@ -38,17 +38,27 @@ const setItems = (arr) => {
 const addItemToCart = (evt) => {
   if(evt.target.nodeName == 'BUTTON' && evt.target.attributes['data-id'])
   {
-    const data = [...evt.target.attributes];
+    const id = evt.target.attributes['data-id'].nodeValue;
+    const itemDontExistInCart = cartItems.find( item => item.id === id ) === undefined;
+
+    if(itemDontExistInCart) {
+      const data = [...evt.target.attributes];
       const product = data.reduce((obj, node) => {
-        const attr = node.nodeName.replace('data-', '');
-        const value = node.nodeValue;
+      const attr = node.nodeName.replace('data-', '');
+      const value = node.nodeValue;
         obj[attr] = value;
         return obj;
       }, {});
       const newCart = [...cartItems, product];
-      setItems(newCart);
+      setItems(newCart)
+    }
+    else {
+      const index = cartItems.findIndex(item => item.id === id);
+      cartItems[index].quantity = parseInt(cartItems[index].quantity) + 1;
+      setItems(cartItems);
+    }
   }
-  };
+};
 
 //Remover item do carrinho
 const removeItem = (evt) => {  

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto</title>
     <link href="index.css" rel='stylesheet' type='text/css' />
+    <link href="responsive.css" rel='stylesheet' type='text/css' />
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@400;800&display=swap" rel="stylesheet">
 </head>
 
@@ -16,6 +17,7 @@
             <div id='produtos-container'>
                 <ul id="lista-produtos">
                     <li>
+                        <button class="details">+</button>
                         <img src='./imagens/note1.webp' />
                         <h4>Asus VivoBook</h4>
                         <h3>R$ <span>2.000</span></h3>
@@ -26,6 +28,7 @@
                         </div>
                     </li>
                     <li>
+                        <button class="details">+</button>
                         <img src='./imagens/note2.webp' />
                         <div class="info">
                         <h4>Multilaser Legacy</h4>
@@ -38,6 +41,7 @@
                         </div>
                     </li>
                     <li>
+                        <button class="details">+</button>
                         <img src='./imagens/note3.webp' />
                         <h4>Compaq Presario</h4>
                         <h3>R$ <span>3.000</span></h3>
@@ -48,6 +52,7 @@
                         </div>
                     </li>
                     <li>
+                        <button class="details">+</button>
                         <img src='./imagens/note4.webp' />
                         <h4>Acer Aspire</h4>
                         <h3>R$ <span>3.500</span></h3>
@@ -58,6 +63,7 @@
                         </div>
                     </li>
                     <li>
+                        <button class="details">+</button>
                         <img src='./imagens/note5.webp' />
                         <h4>Asus Ryzen</h4>
                         <h3>R$ <span>4.000</span></h3>
@@ -68,6 +74,7 @@
                         </div>
                     </li>
                     <li>
+                        <button class="details">+</button>
                         <img src='./imagens/note6.webp' />
                         <h4>Lenovo Ideapad</h4>
                         <h3>R$ <span>5.000</span></h3>
@@ -110,7 +117,7 @@
             <img src="./imagens/{{IMAGEM}}" />
             <span class="item-list-name">{{NOME}}</span>
             <span class="item-list-price">R$ {{PRECO}}</span>
-            <input type='number' class="qtd" value='1' min='1' max="5" data-id="{{ID}}" />
+            <input type='number' class="qtd" value='{{QUANTIDADE}}' min='1' max="5" data-id="{{ID}}" />
             <button data-id='{{ID}}' class="remover-item"></button>
         </li>
     </template>

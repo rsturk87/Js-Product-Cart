@@ -1,0 +1,70 @@
+/*telas intermediárias*/
+@media (max-width: 1500px) {
+    #lista-produtos li img{
+        height: 15vh;
+        max-width: 160px;
+        object-fit: contain;
+    }
+}
+
+/*tablet e notebooks pequenos*/
+@media (max-width: 1020px) {
+    #carrinho-display{
+        max-width: 35vw;
+    }
+
+    #produtos-container{
+        max-width: 60vw;
+        border: none;
+    }
+
+    #lista-produtos{
+        display: block;
+    }
+
+    #lista-produtos li{
+        width: 50vw;
+        height: 35%;
+    }
+
+    #lista-produtos li img{
+        max-width: 300px; 
+    }
+
+    #lista-carrinho li img{
+        display: none;
+    }
+
+    .total{
+        padding: 0px 60px;
+    }
+
+    .checkout {
+        margin: 3px 60px;
+    }
+}
+
+/*smartphones*/
+@media (max-width: 700px) {
+    #carrinho-display{
+        display:none;
+    }
+
+    #produtos-container{
+        max-width: 85vw;
+        border: none;
+    }
+
+    #lista-produtos{
+        display: block;
+    }
+
+    #lista-produtos li{
+        width: 80vw;
+        max-height: 70vh;
+    }
+
+    #lista-produtos li img{
+        max-width: 250px; 
+    }
+}

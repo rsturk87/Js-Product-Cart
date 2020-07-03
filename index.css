@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
-/*input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {  
-    opacity: 1;
-}*/
-
+/*Geral*/
 body{
     margin:0;
     padding: 0;
@@ -35,6 +32,7 @@ h4{
     flex-direction: row;
 }
 
+/*Containers*/
 #container {
     display: flex;
     justify-content: stretch;
@@ -74,11 +72,12 @@ h4{
     margin: 0px;
 }
 
+/*Cards de produtos*/
 #lista-produtos li{
     background:#fff;
     box-shadow: 0px 13px 21px -5px rgba(0, 0, 0, 0.2);
     width: 16vw;
-    height: 50vh;
+    max-height: 55vh;
     text-align: center;
     padding: 20px;
     margin: 22px;
@@ -98,12 +97,33 @@ h4{
     cursor: pointer;
     margin: 3px;
     transition: ease-out 300ms;
+    outline: none;
 }
 
 .action-buttons button:hover{
     background-color: #0d9f60;
     transition: ease-out 300ms;
     border: none;
+}
+
+.details{
+    display: flex;
+    justify-content: flex-end;
+    background-color: #fff;
+    border: .5px solid #0ec878;
+    padding: 2px 6px;
+    color: #0ec878;
+    cursor: pointer;
+    margin: 3px;
+    transition: ease-out 300ms;
+    outline: none;
+}
+
+.details:hover{
+    background-color: #0d9f60;
+    border: .5px solid #0d9f60;
+    color: #fff;
+    transition: ease-out 300ms;
 }
 
 #lista-produtos{
@@ -114,15 +134,16 @@ h4{
 }
 
 #lista-produtos li img{
-    max-height: 20vh;
+    height: 20vh;
+    object-fit: fill;
     margin: 25px 0px 0px;
-    
 }
 
+/*Carrrinho*/
 .cart-title {
-    background: #eee;
+    background: #fff;
     text-align: center;
-    margin: 0;
+    margin: 6px 0px;
     padding: 4px;
 }
 
@@ -150,6 +171,10 @@ h4{
     font-size: 12px;
     border: solid 1px #0d9f60;
     outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {  
+    opacity: 1;
 }
 
 #lista-carrinho li img{
@@ -206,6 +231,7 @@ h4{
     font-weight: 700;
     float: right;
     transition: ease-out 300ms;
+    outline: none;
 }
 
 .checkout:hover {
