@@ -30,6 +30,14 @@
     #lista-produtos li img{
         max-width: 300px; 
     }
+    
+    .cart-title h5 {
+        margin: 10px 6px;
+    }
+    
+    hr{
+        margin: 10px 9px;
+    }
 
     #lista-carrinho li img{
         display: none;
