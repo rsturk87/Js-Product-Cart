@@ -6,13 +6,16 @@ const arrayContains = (value, array) => array.indexOf(value) > -1;
 Array.prototype.contains = function(value){ return this.indexOf(value) > -1; };
 
 //variáveis e constantes
-let cartItems = [];
+let productItems = [];
 const button = document.querySelector('#lista-produtos');
 const productList = document.querySelector('#lista-produtos');
+const productTemplateElement = document.querySelector('#produtos-item');
+const productTemplate = productTemplateElement.innerHTML;
+let cartItems = [];
+const cartTemplateElement = document.querySelector('#carrinho-item');
+const cartTemplate = cartTemplateElement.innerHTML;
 const cartList = document.querySelector('#lista-carrinho');
 const totalPrice = document.querySelector('#total');
-const templateElement = document.querySelector('#carrinho-item');
-const template = templateElement.innerHTML;
 
 //localStorage
 const storageHandler = {
@@ -30,7 +33,7 @@ const storageHandler = {
 const setItems = (arr) => {
     storageHandler.setItems(arr);
     cartItems = storageHandler.getItems();
-    render();
+    renderCart();
 };
 
 
@@ -91,20 +94,39 @@ const templateToHTML = (template, item) => {
     .replaceAll('{{QUANTIDADE}}', item.quantity);
 };
 
-//render
-const render = () => {
-  const cartHTML = cartItems.map((item) => templateToHTML(template, item));
+//get products from json
+const getProductList = async(location) => {
+  const response = await fetch(location);
+  const json = await response.json();
+  return json;
+};
+
+//render Products
+const renderProducts = () => {
+  const productsHTML = productItems.map((item) => templateToHTML(productTemplate, item));
+  productList.innerHTML = productsHTML.join('\n');
+};
+
+//render Cart
+const renderCart = () => {
+  const cartHTML = cartItems.map((item) => templateToHTML(cartTemplate, item));
   cartList.innerHTML = cartHTML.join('\n');
   const total = cartItems.reduce((acc, item) => acc += parseInt(item.price) * parseFloat(item.quantity), 0);
   totalPrice.innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 };
 
 //init
-const init = () => {
+const init = async () => {
     cartItems = storageHandler.getItems();
+
     button.addEventListener('click', addItemToCart);
     cartList.addEventListener('click', removeItem);
     cartList.addEventListener('change', changeQuantity);
-    render();
+
+    const products = await getProductList('./data/data.json');
+    productItems = products;
+    renderProducts();
+
+    renderCart();
 };
 init();

@@ -1,0 +1,44 @@
+[
+    {
+      "id": 1,
+      "name": "Asus VivoBook",
+      "price": 2000,
+      "quantity": 1,
+      "image": "note1.webp"
+    },
+    {
+      "id": 2,
+      "name": "Multilaser Legacy",
+      "price": 2500,
+      "quantity": 1,
+      "image": "note2.webp"
+    },
+    {
+      "id": 3,
+      "name": "Compaq Presario",
+      "price": 3000,
+      "quantity": 1,
+      "image": "note3.webp"
+    },
+    {
+      "id": 4,
+      "name": "Acer Aspire",
+      "price": 3500,
+      "quantity": 1,
+      "image": "note4.webp"
+    },
+    {
+      "id": 5,
+      "name": "Asus Ryzen",
+      "price": 4000,
+      "quantity": 1,
+      "image": "note5.webp"
+    },
+    {
+      "id": 6,
+      "name": "Lenovo Ideapad",
+      "price": 5000,
+      "quantity": 1,
+      "image": "note6.webp"
+    }
+  ]

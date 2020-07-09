@@ -16,74 +16,6 @@
         <div id='produtos-display'>
             <div id='produtos-container'>
                 <ul id="lista-produtos">
-                    <li>
-                        <button class="details">+</button>
-                        <img src='./imagens/note1.webp' />
-                        <h4>Asus VivoBook</h4>
-                        <h3>R$ <span>2.000</span></h3>
-                        <div class="action-buttons">
-                            <button data-id='1' data-name='Asus VivoBook' data-image="note1.webp" data-price="2000" data-quantity="1">
-                                Comprar
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="details">+</button>
-                        <img src='./imagens/note2.webp' />
-                        <div class="info">
-                        <h4>Multilaser Legacy</h4>
-                        <h3>R$ <span>2.500</span></h3>
-                        </div>
-                        <div class="action-buttons">
-                            <button class="addItem" data-id='2' data-name='Multilaser Legacy' data-image="note2.webp" data-price="2500" data-quantity="1">
-                                Comprar
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="details">+</button>
-                        <img src='./imagens/note3.webp' />
-                        <h4>Compaq Presario</h4>
-                        <h3>R$ <span>3.000</span></h3>
-                        <div class="action-buttons">
-                            <button class="addItem" data-id='3' data-name='Compaq Presario' data-image="note3.webp" data-price="3000", data-quantity="1">
-                                Comprar
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="details">+</button>
-                        <img src='./imagens/note4.webp' />
-                        <h4>Acer Aspire</h4>
-                        <h3>R$ <span>3.500</span></h3>
-                        <div class="action-buttons">
-                            <button class="addItem" data-id='4' data-name='Acer Aspire' data-image="note4.webp" data-price="3500", data-quantity="1">
-                                Comprar
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="details">+</button>
-                        <img src='./imagens/note5.webp' />
-                        <h4>Asus Ryzen</h4>
-                        <h3>R$ <span>4.000</span></h3>
-                        <div class="action-buttons">
-                            <button class="addItem" data-id='5' data-name='Asus Ryzen' data-image="note5.webp" data-price="4000", data-quantity="1">
-                                Comprar
-                            </button>
-                        </div>
-                    </li>
-                    <li>
-                        <button class="details">+</button>
-                        <img src='./imagens/note6.webp' />
-                        <h4>Lenovo Ideapad</h4>
-                        <h3>R$ <span>5.000</span></h3>
-                        <div class="action-buttons">
-                            <button class="addItem" data-id='6' data-name='Lenovo Ideapad' data-image="note6.webp" data-price="5000", data-quantity="1">
-                                Comprar
-                            </button>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -91,7 +23,8 @@
         <div id='carrinho-display'>
             <div id='carrinho-container'>
                 <div class="cart-title">
-                    <h5>Carrinho</h5>
+                    <h5>CARRINHO</h5>
+                    <hr>
                 </div>
                 <ul id="lista-carrinho">
                     <li>
@@ -119,6 +52,20 @@
             <span class="item-list-price">R$ {{PRECO}}</span>
             <input type='number' class="qtd" value='{{QUANTIDADE}}' min='1' max="5" data-id="{{ID}}" />
             <button data-id='{{ID}}' class="remover-item"></button>
+        </li>
+    </template>
+
+    <template id='produtos-item'>
+        <li>
+            <button class="details">+</button>
+            <img src='./imagens/{{IMAGEM}}' />
+            <h4>{{NOME}}</h4>
+            <h3>R$ <span>{{PRECO}}</span></h3>
+            <div class="action-buttons">
+                <button class="addItem" data-id='{{ID}}' data-name='{{NOME}}' data-image="{{IMAGEM}}" data-price="{{PRECO}}" data-quantity="1">
+                    Comprar
+                </button>
+            </div>
         </li>
     </template>
 
