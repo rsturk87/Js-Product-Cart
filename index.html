@@ -57,7 +57,7 @@
 
     <template id='produtos-item'>
         <li>
-            <button class="details">+</button>
+            <button class="details" data-details ='1' data-id='{{ID}}'>+</button>
             <img src='./imagens/{{IMAGEM}}' />
             <h4>{{NOME}}</h4>
             <h3>R$ <span>{{PRECO}}</span></h3>
@@ -65,6 +65,11 @@
                 <button class="addItem" data-id='{{ID}}' data-name='{{NOME}}' data-image="{{IMAGEM}}" data-price="{{PRECO}}" data-quantity="1">
                     Comprar
                 </button>
+            </div>
+            <div class="produtos-detalhes">
+                <h4>Tela de {{TELA}}"</h4>
+                <h4>{{RAM}} RAM</h4>
+                <h4>Processador {{PROCESSADOR}}</h4>
             </div>
         </li>
     </template>

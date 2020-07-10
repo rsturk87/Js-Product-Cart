@@ -11,6 +11,7 @@ const button = document.querySelector('#lista-produtos');
 const productList = document.querySelector('#lista-produtos');
 const productTemplateElement = document.querySelector('#produtos-item');
 const productTemplate = productTemplateElement.innerHTML;
+const productDetails = document.getElementsByClassName('produtos-detalhes');
 let cartItems = [];
 const cartTemplateElement = document.querySelector('#carrinho-item');
 const cartTemplate = cartTemplateElement.innerHTML;
@@ -39,7 +40,7 @@ const setItems = (arr) => {
 
 //Adicionar item no carrinho
 const addItemToCart = (evt) => {
-  if(evt.target.nodeName == 'BUTTON' && evt.target.attributes['data-id'])
+  if(evt.target.nodeName == 'BUTTON' && evt.target.attributes['data-name'])
   {
     const id = evt.target.attributes['data-id'].nodeValue;
     const itemDontExistInCart = cartItems.find( item => item.id === id ) === undefined;
@@ -84,6 +85,20 @@ const changeQuantity = (evt) => {
   }
 };
 
+//Mostrar detalhes do produto
+let toggle = false;
+const toggleDetails = (evt) => {
+  const id = evt.target.attributes['data-id'].nodeValue;
+  if(evt.target.nodeName == 'BUTTON' && evt.target.attributes['data-details'] && toggle == false){
+    productDetails[id].style.display = 'none';
+    toggle = true;
+  }
+  else if(evt.target.attributes['data-details']){
+    productDetails[id].style.display = 'inline';
+    toggle = false;
+  }
+};
+
 //template
 const templateToHTML = (template, item) => {
   return template
@@ -91,7 +106,10 @@ const templateToHTML = (template, item) => {
     .replaceAll('{{PRECO}}', item.price)
     .replaceAll('{{ID}}', item.id)
     .replaceAll('{{IMAGEM}}', item.image)
-    .replaceAll('{{QUANTIDADE}}', item.quantity);
+    .replaceAll('{{QUANTIDADE}}', item.quantity)
+    .replaceAll('{{TELA}}', item.display)
+    .replaceAll('{{RAM}}', item.ram)
+    .replaceAll('{{PROCESSADOR}}', item.processor);
 };
 
 //get products from json
@@ -120,6 +138,7 @@ const init = async () => {
     cartItems = storageHandler.getItems();
 
     button.addEventListener('click', addItemToCart);
+    button.addEventListener('click', toggleDetails);
     cartList.addEventListener('click', removeItem);
     cartList.addEventListener('change', changeQuantity);
 

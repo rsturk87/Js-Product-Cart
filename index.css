@@ -81,6 +81,7 @@ h4{
 /*Cards de produtos*/
 #lista-produtos li{
     background:#fff;
+    position: relative;
     box-shadow: 0px 13px 21px -5px rgba(0, 0, 0, 0.2);
     width: 16vw;
     max-height: 55vh;
@@ -146,9 +147,23 @@ h4{
     margin: 25px 0px 0px;
 }
 
+.produtos-detalhes{
+    display: none;
+    position: absolute;
+    max-width: 15.5vw;
+    height: 29vh;
+    z-index: 1;
+    background-color: #fff;
+    color: #242424;
+    text-align: center;
+    top: 55px;
+    left: 23px;
+    padding: 10px 0px 0px 0px;
+}
+
 /*Carrrinho*/
 .cart-title {
-    background: #fff;;
+    background: #fff;
     text-align: left;
     margin: 6px 0px;
     padding: 4px;
