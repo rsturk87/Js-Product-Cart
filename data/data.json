@@ -1,44 +1,62 @@
 [
     {
-      "id": 1,
-      "name": "Asus VivoBook",
-      "price": 2000,
+      "id": 0,
+      "name": "Asus Ryzen",
+      "price": 3500,
       "quantity": 1,
-      "image": "note1.webp"
+      "image": "note1.webp",
+      "display" : "15.6",
+      "ram" : "8GB",
+      "processor" : "AMD Radeon Vega 8"
+    },
+    {
+      "id": 1,
+      "name": "Multilaser Legacy",
+      "price": 1400,
+      "quantity": 1,
+      "image": "note2.webp",
+      "display" : "13.3",
+      "ram" : "4GB",
+      "processor" : "Intel Celeron"
     },
     {
       "id": 2,
-      "name": "Multilaser Legacy",
-      "price": 2500,
+      "name": "Compaq Presario",
+      "price": 1600,
       "quantity": 1,
-      "image": "note2.webp"
+      "image": "note3.webp",
+      "display" : "14",
+      "ram" : "4GB",
+      "processor" : "Intel Pentium"
     },
     {
       "id": 3,
-      "name": "Compaq Presario",
-      "price": 3000,
+      "name": "Acer Aspire",
+      "price": 2600,
       "quantity": 1,
-      "image": "note3.webp"
+      "image": "note4.webp",
+      "display" : "15.6",
+      "ram" : "4GB",
+      "processor" : "Intel Core i3"
     },
     {
       "id": 4,
-      "name": "Acer Aspire",
-      "price": 3500,
+      "name": "Asus VivoBook",
+      "price": 2700,
       "quantity": 1,
-      "image": "note4.webp"
+      "image": "note5.webp",
+      "display" : "14",
+      "ram" : "4GB",
+      "processor" : "Intel Core i3"
     },
     {
       "id": 5,
-      "name": "Asus Ryzen",
-      "price": 4000,
-      "quantity": 1,
-      "image": "note5.webp"
-    },
-    {
-      "id": 6,
       "name": "Lenovo Ideapad",
-      "price": 5000,
+      "price": 3500,
       "quantity": 1,
-      "image": "note6.webp"
+      "image": "note6.webp",
+      "display" : "15.6",
+      "ram" : "12GB",
+      "processor" : "Intel Core i5"
     }
   ]
