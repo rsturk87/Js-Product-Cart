@@ -7,7 +7,6 @@ Array.prototype.contains = function(value){ return this.indexOf(value) > -1; };
 
 //variáveis e constantes
 let productItems = [];
-const button = document.querySelector('#lista-produtos');
 const productList = document.querySelector('#lista-produtos');
 const productTemplateElement = document.querySelector('#produtos-item');
 const productTemplate = productTemplateElement.innerHTML;
@@ -37,15 +36,14 @@ const setItems = (arr) => {
     renderCart();
 };
 
-
 //Adicionar item no carrinho
 const addItemToCart = (evt) => {
   if(evt.target.nodeName == 'BUTTON' && evt.target.attributes['data-name'])
   {
     const id = evt.target.attributes['data-id'].nodeValue;
-    const itemDontExistInCart = cartItems.find( item => item.id === id ) === undefined;
+    const itemDontExistInCart = cartItems.find( item => item.id === id );
 
-    if(itemDontExistInCart) {
+    if(!itemDontExistInCart) {
       const data = [...evt.target.attributes];
       const product = data.reduce((obj, node) => {
       const attr = node.nodeName.replace('data-', '');
@@ -137,15 +135,14 @@ const renderCart = () => {
 const init = async () => {
     cartItems = storageHandler.getItems();
 
-    button.addEventListener('click', addItemToCart);
-    button.addEventListener('click', toggleDetails);
+    productList.addEventListener('click', addItemToCart);
+    productList.addEventListener('click', toggleDetails);
     cartList.addEventListener('click', removeItem);
     cartList.addEventListener('change', changeQuantity);
 
     const products = await getProductList('./data/data.json');
     productItems = products;
     renderProducts();
-
     renderCart();
 };
 init();
